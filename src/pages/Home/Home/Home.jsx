@@ -1,3 +1,4 @@
+import { FaStar } from "react-icons/fa6";
 import image1 from "../../../assets/images/Home/1.png";
 import image2 from "../../../assets/images/Home/2.png";
 import image3 from "../../../assets/images/Home/3.png";
@@ -5,7 +6,7 @@ import image4 from "../../../assets/images/Home/4.png";
 
 const Home = () => {
   return (
-    <div className="bg-gray-100 h-screen" style={{
+    <div className="bg-gray-100 pb-10" style={{
         backgroundImage: `url('https://media.istockphoto.com/id/1158735721/vector/arrows-up-with-speed-line-on-blue-background.jpg?s=612x612&w=0&k=20&c=pqNZeeTSr2NFp4YNtrgCZyt_f4kp0wmbMwrCXNIo39Y=')`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -36,7 +37,7 @@ const Home = () => {
           </label>
         </div>
       </div>
-      <div className="flex gap-8 mt-10">
+      <div className="flex gap-8 mt-10 px-5">
       <div className="w-1/2">
         <div className="flex">
           <img className="rounded" src={image1} alt="" />
@@ -73,6 +74,10 @@ const Home = () => {
           />
         </div>
       </div>
+      </div>
+      <div className="flex items-center justify-center gap-3 bg-[#665052] text-white w-96 mx-auto mt-5 py-3">
+      <p className='px-2 py-2 rounded-full bg-[#028282] text-white'><FaStar /></p>
+      <h1 className="underline text-center ">Add more answer</h1>
       </div>
     </div>
   );
