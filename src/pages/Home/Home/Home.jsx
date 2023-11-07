@@ -3,11 +3,14 @@ import image1 from "../../../assets/images/Home/1.png";
 import image2 from "../../../assets/images/Home/2.png";
 import image3 from "../../../assets/images/Home/3.png";
 import image4 from "../../../assets/images/Home/4.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Home = () => {
+  const{OutLatImage} = useContext(AuthContext)
   return (
     <div className="bg-gray-100 pb-10" style={{
-        backgroundImage: `url('https://media.istockphoto.com/id/1158735721/vector/arrows-up-with-speed-line-on-blue-background.jpg?s=612x612&w=0&k=20&c=pqNZeeTSr2NFp4YNtrgCZyt_f4kp0wmbMwrCXNIo39Y=')`,
+        backgroundImage: `url(${OutLatImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         width: '100%',

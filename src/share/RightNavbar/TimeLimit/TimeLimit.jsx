@@ -16,7 +16,7 @@ const TimeLimit = () => {
 
   return (
     <div>
-      <div className="form-control mt-10 w-72 ">
+      <div className="form-control mt-5 w-72 ">
         <label className="label">
           <span className="label-text flex items-center">
             {" "}
