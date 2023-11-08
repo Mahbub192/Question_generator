@@ -1,19 +1,23 @@
 import { FaAngleDown, FaHeadSideVirus, FaLayerGroup } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const TestKnowledge = [
   {
     id: "01",
     name: "Quiz",
+    linkThrow: "quiz",
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
     id: "02",
     name: "True of False",
+    linkThrow: "trueOrFalse",
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
     id: "03",
     name: "Type answer",
+    linkThrow: 'typeAnswer',
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
@@ -32,7 +36,6 @@ const TestKnowledge = [
     icon: <FaLayerGroup></FaLayerGroup>,
   },
 ];
-
 
 const CollectOpinions = [
   {
@@ -55,7 +58,7 @@ const CollectOpinions = [
     name: "Open-ended",
     icon: <FaLayerGroup></FaLayerGroup>,
   },
-]
+];
 const QuestionType = () => {
   return (
     <div className="mt-5">
@@ -76,31 +79,31 @@ const QuestionType = () => {
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-72">
           <h1 className="text-lg pb-2 font-medium">Test Knowledge</h1>
           <div className="grid grid-cols-2 gap-2 ">
-          {TestKnowledge.map((category) => (
-            <li key={category.id} className="">
-              <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
-                <h1 className="text-2xl ">
-                  {category.icon}
-                </h1>
-                <h1 className="text-lg text-center w-28">{category.name}</h1>
-              </div>
-            </li>
-          ))}
+            {TestKnowledge.map((category) => (
+              <Link to={`/${category.linkThrow}`} key={category.id}>
+                <li className="">
+                  <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
+                    <h1 className="text-2xl ">{category.icon}</h1>
+                    <h1 className="text-lg text-center w-28">
+                      {category.name}
+                    </h1>
+                  </div>
+                </li>
+              </Link>
+            ))}
           </div>
 
           {/* Collect opinions */}
           <h1 className="text-lg py-2 font-medium">Collect opinions</h1>
           <div className="grid grid-cols-2 gap-2 ">
-          { CollectOpinions.map((category) => (
-            <li key={category.id} className="">
-              <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
-                <h1 className="text-2xl ">
-                  {category.icon}
-                </h1>
-                <h1 className="text-lg text-center w-28">{category.name}</h1>
-              </div>
-            </li>
-          ))}
+            {CollectOpinions.map((category) => (
+              <li key={category.id} className="">
+                <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
+                  <h1 className="text-2xl ">{category.icon}</h1>
+                  <h1 className="text-lg text-center w-28">{category.name}</h1>
+                </div>
+              </li>
+            ))}
           </div>
         </ul>
       </details>

@@ -1,18 +1,20 @@
 import { FaStar } from "react-icons/fa6";
-import image1 from "../../../assets/images/Home/1.png";
-import image2 from "../../../assets/images/Home/2.png";
-import image3 from "../../../assets/images/Home/3.png";
-import image4 from "../../../assets/images/Home/4.png";
+import image1 from "../../assets/images/Home/1.png";
+import image2 from "../../assets/images/Home/2.png";
+import image3 from "../../assets/images/Home/3.png";
+import image4 from "../../assets/images/Home/4.png";
 import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../../providers/AuthProvider";
 
-const Home = () => {
-  const{OutLatImage} = useContext(AuthContext)
+const TypeAnswer = () => {
+  const { OutLatImage } = useContext(AuthContext);
   return (
-    <div className="bg-gray-100 pb-10  h-[calc(100vh-85px)" style={{
+    <div
+      className="bg-gray-100 pb-10  h-[calc(100vh-85px)"
+      style={{
         backgroundImage: `url(${OutLatImage})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
         // width: '100%',
         // height: '100%', // Set the height to 100% of the viewport height
       }}
@@ -40,36 +42,38 @@ const Home = () => {
           </label>
         </div>
       </div>
-      <div className="flex gap-8 mt-10 px-5">
-      <div className="w-1/2">
-        <div className="flex">
-          <img className="rounded" src={image1} alt="" />
+
+      <div className="w-1/2 mx-auto mt-10">
+        <div className="">
+          <input
+            type="text"
+            placeholder="Add answer 1"
+            className="input input-bordered w-full rounded py-10 text-xl pl-10"
+          />
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-3 bg-[#665052] text-white w-96 mx-auto mt-5 py-3">
+        <p className="px-2 py-2 rounded-full bg-[#028282] text-white">
+          <FaStar />
+        </p>
+        <h1 className="underline text-center ">Other accepted answers</h1>
+      </div>
+      <div className="flex gap-8 mt-6 px-5 pb-5">
+        <div className="w-4/12 flex">
           <input
             type="text"
             placeholder="Add answer 1"
             className="input input-bordered w-full rounded py-12 text-xl pl-10"
           />
         </div>
-        <div className="flex mt-10">
-          <img className="rounded" src={image2} alt="" />
+        <div className="w-4/12 flex ">
           <input
             type="text"
             placeholder="Add answer 2"
             className="input input-bordered w-full rounded py-12 text-xl pl-10"
           />
         </div>
-      </div>
-      <div className="w-1/2">
-        <div className="flex">
-          <img className="rounded" src={image3} alt="" />
-          <input
-            type="text"
-            placeholder="Add answer 3"
-            className="input input-bordered w-full rounded py-12 text-xl pl-10"
-          />
-        </div>
-        <div className="flex mt-10">
-          <img className="rounded" src={image4} alt="" />
+        <div className="w-4/12 flex ">
           <input
             type="text"
             placeholder="Add answer 4"
@@ -77,13 +81,9 @@ const Home = () => {
           />
         </div>
       </div>
-      </div>
-      <div className="flex items-center justify-center gap-3 bg-[#665052] text-white w-96 mx-auto mt-5 py-3">
-      <p className='px-2 py-2 rounded-full bg-[#028282] text-white'><FaStar /></p>
-      <h1 className="underline text-center ">Add more answer</h1>
-      </div>
+      
     </div>
   );
 };
 
-export default Home;
+export default TypeAnswer;

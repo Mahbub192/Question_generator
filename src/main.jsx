@@ -4,7 +4,7 @@ import './index.css'
 import {
   RouterProvider,
 } from "react-router-dom";
-import router from './Routers/Routers.jsx';
+import router from './Routers/Routers.jsx'; // Assuming that your router component is in MyRouter.js
 import AuthProvider from './providers/AuthProvider.jsx';
 
 
