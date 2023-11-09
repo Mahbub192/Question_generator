@@ -28,6 +28,7 @@ const TestKnowledge = [
   {
     id: "05",
     name: "Puzzle",
+    linkThrow: 'puzzle',
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {

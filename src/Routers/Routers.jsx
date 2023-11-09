@@ -3,6 +3,7 @@ import ManLayout from "../Layout/ManLayout/ManLayout";
 import Home from "../pages/Home/Home/Home";
 import TrueOrFalse from "../pages/TrueOrFalse/TrueOrFalse";
 import TypeAnswer from "../pages/TypeAnswer/TypeAnswer";
+import Puzzle from "../pages/Puzzle/Puzzle";
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: 'typeAnswer',
         element: <TypeAnswer/>
+      },
+      {
+        path: 'puzzle',
+        element: <Puzzle />
       },
     ],
   },

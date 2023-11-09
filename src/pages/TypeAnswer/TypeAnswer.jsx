@@ -1,8 +1,4 @@
-import { FaStar } from "react-icons/fa6";
-import image1 from "../../assets/images/Home/1.png";
-import image2 from "../../assets/images/Home/2.png";
-import image3 from "../../assets/images/Home/3.png";
-import image4 from "../../assets/images/Home/4.png";
+import { FaStar } from "react-icons/fa6"; 
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
