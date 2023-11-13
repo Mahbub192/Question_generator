@@ -1,11 +1,15 @@
 import QuizSlide from "./QuizSlide/QuizSlide";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { AuthContext } from "../../providers/AuthProvider";
+import { FaRegCopy } from "react-icons/fa6";
+import { AiOutlineDelete } from "react-icons/ai";
 
 // eslint-disable-next-line react/prop-types
-const DraggableItem = ({ id, text, index, moveItem }) => {
+const DraggableItem = ({ id, text, index, moveItem, handleDeleteSlide,mainContent }) => {
+  const { setCopySlide,setManLayout } = useContext(AuthContext);
+
   const [, drag] = useDrag({
     type: "DIV",
     item: { id, index },
@@ -29,18 +33,30 @@ const DraggableItem = ({ id, text, index, moveItem }) => {
       <div style={{ fontSize: "16px", fontWeight: "bold", color: "#4e4c4c" }}>
         {index + 1} no Slide
       </div>
-      <p>{text}</p>
+      <div className="flex gap-1 ">
+        <div className="mt-10">
+          <button
+            onClick={() => setCopySlide(<QuizSlide />)}
+            className="text-xl p-0"
+          >
+            <FaRegCopy />
+          </button>
+          <button
+            onClick={() => handleDeleteSlide(id)}
+            className="mt-4 text-xl p-0"
+          >
+            <AiOutlineDelete />
+          </button>
+        </div>
+        <div onClick={()=> setManLayout(mainContent)}>{text}</div>
+      </div>
     </div>
   );
 };
 
 const LeftNavbar = () => {
-  const { copySlide } = useContext(AuthContext);
-  const [number, setNumber] = useState(0);
-  const [items, setItems] = useState([{ id: number, text: <QuizSlide /> }]);
-  console.log(40, items);
+  const {  items, setItems } = useContext(AuthContext);
 
-  console.log(42, copySlide);
   const moveItem = (fromIndex, toIndex) => {
     const newItems = [...items];
     const [removedItem] = newItems.splice(fromIndex, 1);
@@ -48,34 +64,37 @@ const LeftNavbar = () => {
     setItems(newItems);
   };
 
-  useEffect(() => {
-    console.log(53, copySlide);
+  console.log(items)
 
-    if (copySlide === undefined) {
-      return;
-    } else {
-      setNumber((prevNumber) => prevNumber + 1);
-      setItems((prevItems) => [
-        ...prevItems,
-        { id: prevItems.length, text: copySlide },
-      ]);
-    }
-  }, [copySlide]);
+  const handleDeleteSlide = (id) => {
+    const deleteItem = items.filter((singleItem) => singleItem.id !== id);
+    setItems(deleteItem);
+  };
+
+  // useEffect(() => {
+  //   if (copySlide !== undefined) {
+  //     setNumber((prevNumber) => prevNumber + 1);
+  //     setItems((prevItems) => [
+  //       ...prevItems,
+  //       { id: prevItems.length, text: copySlide },
+  //     ]);
+  //   }
+  // }, [copySlide]);
 
   return (
     <div className="mt-5">
       <DndProvider backend={HTML5Backend}>
         <div>
           {items.map((item, index) => (
-            <>
-              <DraggableItem
-                key={item.id}
-                id={item.id}
-                text={item.text}
-                index={index}
-                moveItem={moveItem}
-              />
-            </>
+            <DraggableItem
+              key={item.id}
+              id={item.id}
+              text={item.text}
+              index={index}
+              moveItem={moveItem}
+              handleDeleteSlide={handleDeleteSlide}
+              mainContent = {item.mainContent}
+            />
           ))}
         </div>
       </DndProvider>

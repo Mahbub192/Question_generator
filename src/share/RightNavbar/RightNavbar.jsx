@@ -6,7 +6,7 @@ import TimeLimit from "./TimeLimit/TimeLimit";
 
 const RightNavbar = () => {
     return (
-        <div className=" px-5 mt-5 w-72">
+        <div className=" px-5 mt-5 ">
             <QuestionType />
             <TimeLimit />
             <Points />

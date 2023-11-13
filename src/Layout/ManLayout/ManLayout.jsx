@@ -7,16 +7,18 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const ManLayout = () => {
-  const{rightNav} = useContext(AuthContext)
+  const{rightNav ,manLayout} = useContext(AuthContext)
   return (
     <div>
       <TopNavbar />
-      <div className="flex flex-wrap">
+      <div className="flex ">
         <div className="w-1/12">
           <LeftNavbar />
         </div>
         <div className="w-9/12">
-          <Outlet />
+          {
+            manLayout ? <p>{manLayout}</p> : <Outlet />
+          }
         </div>
         <div className="2/12">
           {rightNav ? <FrequentlyChangeThem /> : <RightNavbar />}

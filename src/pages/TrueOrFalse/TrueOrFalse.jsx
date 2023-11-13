@@ -15,8 +15,6 @@ const TrueOrFalse = () => {
         backgroundImage: `url(${OutLatImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        // width: "100%",
-        // height: "100%", // Set the height to 100% of the viewport height
       }}
     >
       <div className="px-10 pt-12">

@@ -1,23 +1,10 @@
-import { FaRegCopy } from "react-icons/fa6";
-import { AiOutlineDelete } from "react-icons/ai";
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
 
 const QuizSlide = () => {
-    const {setCopySlide} = useContext(AuthContext)
   return (
     <div className=" bg-[#eaf4fc]">
       <div className="">
         <div className="flex gap-1 px-2">
-          <div className="mt-10">
-            <button onClick={()=>setCopySlide(<QuizSlide />)} className="text-xl p-0">
-              <FaRegCopy />
-            </button>
-            <button className="mt-4 text-xl p-0">
-              {" "}
-              <AiOutlineDelete />
-            </button>
-          </div>
+          
           <div className="h-28 border-2 border-gray-400 w-28 ">
            <div className="">
            <div className="w-16 mx-auto mt-1 border-gray-500">
