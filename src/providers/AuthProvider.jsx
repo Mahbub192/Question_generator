@@ -13,6 +13,8 @@ const AuthProvider = ({children}) => {
     const [manLayout, setManLayout] = useState()
     const [deleteSlide, setDeleteSlide] = useState()
     const [number, setNumber] = useState(0);
+    const [AddButtonHidden, setAddButtonHidden] = useState(true)
+    const [addQuestionModalSubPart, setAddQuestionModalSubPart] = useState()
     const [items, setItems] = useState([{ id: number, text: <QuizSlide /> ,mainContent : <Home /> }]);
     const [OutLatImage, setOutLateImage] = useState('https://media.istockphoto.com/id/1158735721/vector/arrows-up-with-speed-line-on-blue-background.jpg?s=612x612&w=0&k=20&c=pqNZeeTSr2NFp4YNtrgCZyt_f4kp0wmbMwrCXNIo39Y=')
 
@@ -46,6 +48,10 @@ const AuthProvider = ({children}) => {
         setMainSlide,
         setManLayout,
         manLayout,
+        AddButtonHidden,
+        setAddButtonHidden,
+        setAddQuestionModalSubPart,
+        addQuestionModalSubPart
 
     }
 

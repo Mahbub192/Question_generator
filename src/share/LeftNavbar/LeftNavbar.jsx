@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import QuizSlide from "./QuizSlide/QuizSlide";
 import { useContext } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
@@ -7,8 +8,15 @@ import { FaRegCopy } from "react-icons/fa6";
 import { AiOutlineDelete } from "react-icons/ai";
 
 // eslint-disable-next-line react/prop-types
-const DraggableItem = ({ id, text, index, moveItem, handleDeleteSlide,mainContent }) => {
-  const { setCopySlide,setManLayout } = useContext(AuthContext);
+const DraggableItem = ({
+  id,
+  text,
+  index,
+  moveItem,
+  handleDeleteSlide,
+  mainContent,
+}) => {
+  const { setCopySlide, setManLayout } = useContext(AuthContext);
 
   const [, drag] = useDrag({
     type: "DIV",
@@ -48,14 +56,15 @@ const DraggableItem = ({ id, text, index, moveItem, handleDeleteSlide,mainConten
             <AiOutlineDelete />
           </button>
         </div>
-        <div onClick={()=> setManLayout(mainContent)}>{text}</div>
+        <div onClick={() => setManLayout(mainContent)}>{text}</div>
       </div>
     </div>
   );
 };
 
 const LeftNavbar = () => {
-  const {  items, setItems } = useContext(AuthContext);
+  const { items, setItems, AddButtonHidden, setAddButtonHidden } =
+    useContext(AuthContext);
 
   const moveItem = (fromIndex, toIndex) => {
     const newItems = [...items];
@@ -64,7 +73,7 @@ const LeftNavbar = () => {
     setItems(newItems);
   };
 
-  console.log(items)
+  console.log(items);
 
   const handleDeleteSlide = (id) => {
     const deleteItem = items.filter((singleItem) => singleItem.id !== id);
@@ -82,25 +91,30 @@ const LeftNavbar = () => {
   // }, [copySlide]);
 
   return (
-    <div className="mt-5">
-      <DndProvider backend={HTML5Backend}>
-        <div>
-          {items.map((item, index) => (
-            <DraggableItem
-              key={item.id}
-              id={item.id}
-              text={item.text}
-              index={index}
-              moveItem={moveItem}
-              handleDeleteSlide={handleDeleteSlide}
-              mainContent = {item.mainContent}
-            />
-          ))}
-        </div>
-      </DndProvider>
+    <div className="mt-5 ">
+      <div className="max-h-[600px] overflow-y-auto px-1 overflow-x-hidden">
+        <DndProvider backend={HTML5Backend}>
+          <div>
+            {items.map((item, index) => (
+              <DraggableItem
+                key={item.id}
+                id={item.id}
+                text={item.text}
+                index={index}
+                moveItem={moveItem}
+                handleDeleteSlide={handleDeleteSlide}
+                mainContent={item.mainContent}
+              />
+            ))}
+          </div>
+        </DndProvider>
+      </div>
 
       <div className="text-center mt-4">
-        <button className="bg-[#1368ce] text-white px-3 py-2 text-lg rounded-lg shadow-xl hover:bg-[#163c6b] font-medium">
+        <button
+          onClick={() => setAddButtonHidden(!AddButtonHidden)}
+          className="bg-[#1368ce] text-white px-3 py-2 text-lg rounded-lg shadow-xl hover:bg-[#163c6b] font-medium"
+        >
           Add Question
         </button>
       </div>

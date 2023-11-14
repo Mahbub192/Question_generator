@@ -5,9 +5,11 @@ import LeftNavbar from "../../share/LeftNavbar/LeftNavbar";
 import FrequentlyChangeThem from "../../share/TopNavbar/FrequentlyChangeThem/FrequentlyChangeThem";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import AddQuestionButton from "../../conponent/AddQuestionButton/AddQuestionButton";
 
 const ManLayout = () => {
   const{rightNav ,manLayout} = useContext(AuthContext)
+
   return (
     <div>
       <TopNavbar />
@@ -15,10 +17,13 @@ const ManLayout = () => {
         <div className="w-1/12">
           <LeftNavbar />
         </div>
-        <div className="w-9/12">
+        <div className="w-9/12 relative">
           {
             manLayout ? <p>{manLayout}</p> : <Outlet />
           }
+          <div className=" absolute  top-10 left-5">
+          <AddQuestionButton />
+          </div>
         </div>
         <div className="2/12">
           {rightNav ? <FrequentlyChangeThem /> : <RightNavbar />}

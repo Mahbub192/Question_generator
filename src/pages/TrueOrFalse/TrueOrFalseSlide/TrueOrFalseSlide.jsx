@@ -1,9 +1,9 @@
 const TrueOrFalseSlide = () => {
   return (
-    <div className=" bg-[#eaf4fc]">
+    <div className=" ">
       <div className="">
-        <div className="flex gap-1 px-2">
-          <div className="h-28 border-2 border-gray-400 w-28 ">
+        <div className="flex">
+          <div className="h-28 border-2 bg-[#eaf4fc] border-gray-400 w-24 ">
             <div className="">
               <div className="w-16 mx-auto mt-1 border-gray-500">
                 <input className="w-full " />
