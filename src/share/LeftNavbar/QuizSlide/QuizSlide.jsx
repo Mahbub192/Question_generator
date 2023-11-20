@@ -5,12 +5,15 @@ const QuizSlide = () => {
       <div className="">
         <div className="flex ">
           
-          <div className="h-28 border-2 border-gray-400 w-24 bg-[#eaf4fc]">
+          <div className="h-12 md:h-28 border-2 border-gray-400 rounded-lg w-16 md:w-24 bg-[#eaf4fc]">
            <div className="">
-           <div className="w-16 mx-auto mt-1 border-gray-500">
+           <div className="hidden md:block w-16 mx-auto mt-1 border-gray-500">
               <input
               className="w-full "
               />
+            </div>
+            <div className="block md:hidden">
+              <h1 className="text-gray-300 text-sm text-center">Slide</h1>
             </div>
             <div>
               <div className="flex w-full  items-center justify-center bg-grey-lighter">
@@ -26,7 +29,7 @@ const QuizSlide = () => {
                 </label>
               </div>
             </div>
-            <div className="flex pl-1">
+            <div className="hidden md:block md:flex pl-1">
               <div className="w-1/2">
                 <div className="">
                   <input

@@ -38,32 +38,32 @@ const DraggableItem = ({
       ref={(node) => drag(drop(node))}
       style={{ border: "1px solid #ddd", padding: "10px", marginBottom: "5px" }}
     >
-      <div style={{ fontSize: "16px", fontWeight: "bold", color: "#4e4c4c" }}>
+      <div className="text-sm md:text-lg font-bold text-gray-400">
         {index + 1} no Slide
       </div>
       <div className="flex gap-1 ">
-        <div className="mt-10">
+        <div className="hidden md:block md:mt-10 ">
           <button
             onClick={() => setCopySlide(<QuizSlide />)}
-            className="text-xl p-0"
+            className="text-xl p-0 "
           >
             <FaRegCopy />
           </button>
           <button
             onClick={() => handleDeleteSlide(id)}
-            className="mt-4 text-xl p-0"
+            className=" md:mt-4 text-xl p-0"
           >
             <AiOutlineDelete />
           </button>
         </div>
-        <div onClick={() => setManLayout(mainContent)}>{text}</div>
+        <div  onClick={() => setManLayout(mainContent)}>{text}</div>
       </div>
     </div>
   );
 };
 
 const LeftNavbar = () => {
-  const { items, setItems, AddButtonHidden, setAddButtonHidden } =
+  const { items, setItems, AddButtonHidden, setAddButtonHidden, setAddSlideButton } =
     useContext(AuthContext);
 
   const moveItem = (fromIndex, toIndex) => {
@@ -80,21 +80,23 @@ const LeftNavbar = () => {
     setItems(deleteItem);
   };
 
-  // useEffect(() => {
-  //   if (copySlide !== undefined) {
-  //     setNumber((prevNumber) => prevNumber + 1);
-  //     setItems((prevItems) => [
-  //       ...prevItems,
-  //       { id: prevItems.length, text: copySlide },
-  //     ]);
-  //   }
-  // }, [copySlide]);
+  const handleAddQuestion =()=>{
+    setAddSlideButton(false)
+    setAddButtonHidden(!AddButtonHidden)
+  }
+
+  const handelAddSlide=()=>{
+    setAddSlideButton(true)
+    setAddButtonHidden(!AddButtonHidden)
+    
+  }
+
 
   return (
-    <div className="mt-5 ">
-      <div className="max-h-[600px] overflow-y-auto px-1 overflow-x-hidden">
+    <div className="md:mt-5  flex md:flex-wrap items-center justify-between ">
+      <div className="w-9/12 md:w-full md:max-h-[600px] overflow-x-auto  md:overflow-y-auto px-1 md:overflow-x-hidden">
         <DndProvider backend={HTML5Backend}>
-          <div>
+          <div className="flex md:flex-wrap">
             {items.map((item, index) => (
               <DraggableItem
                 key={item.id}
@@ -110,16 +112,16 @@ const LeftNavbar = () => {
         </DndProvider>
       </div>
 
-      <div className="text-center mt-4">
+      <div className="w-2/10 md:w-full text-center md:mt-4">
         <button
-          onClick={() => setAddButtonHidden(!AddButtonHidden)}
+          onClick={ handleAddQuestion}
           className="bg-[#1368ce] text-white px-3 py-2 text-lg rounded-lg shadow-xl hover:bg-[#163c6b] font-medium"
         >
-          Add Question
+          <span className="hidden md:block">Add Question</span> <span className="block md:hidden">+</span>
         </button>
       </div>
-      <div className="text-center mt-5">
-        <button className="bg-gray-300  px-7 py-2 text-lg rounded-lg shadow-2xl  font-medium">
+      <div className="hidden md:block text-center mt-5">
+        <button onClick={handelAddSlide} className="bg-gray-300  px-7 py-2 text-lg rounded-lg shadow-2xl  font-medium">
           Add Slide
         </button>
       </div>

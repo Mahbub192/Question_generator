@@ -8,6 +8,8 @@ import QuizSlide from "../../LeftNavbar/QuizSlide/QuizSlide";
 import TrueOrFalseSlide from "../../../pages/TrueOrFalse/TrueOrFalseSlide/TrueOrFalseSlide";
 import Home from "../../../pages/Home/Home/Home";
 import TrueOrFalse from "../../../pages/TrueOrFalse/TrueOrFalse";
+import TypeAnswerSlide from "../../../conponent/TypeAnswerSlide/TypeAnswerSlide";
+import PuzzleSlide from "../../../conponent/PuzzleSlide/PuzzleSlide";
 
 const TestKnowledge = [
   {
@@ -30,7 +32,8 @@ const TestKnowledge = [
     id: "03",
     name: "Type answer",
     linkThrow: 'typeAnswer',
-    slide: <TypeAnswer />,
+    slide: <TypeAnswerSlide />,
+    route: <TypeAnswer />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
@@ -43,7 +46,8 @@ const TestKnowledge = [
     id: "05",
     name: "Puzzle",
     linkThrow: 'puzzle',
-    slide: <Puzzle />,
+    slide: <PuzzleSlide />,
+    route: <Puzzle />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
@@ -58,6 +62,9 @@ const CollectOpinions = [
   {
     id: "01",
     name: "Poll",
+    linkThrow: 'poll',
+    slide: <QuizSlide />,
+    route: <Home />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
@@ -126,12 +133,16 @@ const QuestionType = () => {
           <h1 className="text-lg py-2 font-medium">Collect opinions</h1>
           <div className="grid grid-cols-2 gap-2 ">
             {CollectOpinions.map((category) => (
-              <li key={category.id} className="">
-                <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
-                  <h1 className="text-2xl ">{category.icon}</h1>
-                  <h1 className="text-lg text-center w-28">{category.name}</h1>
-                </div>
-              </li>
+               <Link to={`/${category.linkThrow}`} key={category.id}>
+               <li onClick={() => handleLinkClick(category)} className="">
+                 <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
+                   <h1 className="text-2xl ">{category?.icon}</h1>
+                   <h1 className="text-lg text-center w-28">
+                     {category?.name}
+                   </h1>
+                 </div>
+               </li>
+             </Link>
             ))}
           </div>
         </ul>

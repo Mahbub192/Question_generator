@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         path: 'puzzle',
         element: <Puzzle />
       },
+      {
+        path: 'poll',
+        element: <Home />
+      },
     ],
   },
 ]);
