@@ -1,4 +1,4 @@
-import { FaStar } from "react-icons/fa6";
+import { FaEllipsisVertical, FaStar } from "react-icons/fa6";
 import image1 from "../../../assets/images/Home/1.png";
 import image2 from "../../../assets/images/Home/2.png";
 import image3 from "../../../assets/images/Home/3.png";
@@ -14,6 +14,9 @@ const Home = () => {
     setMoreAns(!moreAns)
     setMoreAnsTex('Remove more answer')
   }
+  const handleMenu =()=>{
+    console.log(handleMenu)
+  }
   return (
     <div>
       <div
@@ -27,12 +30,15 @@ const Home = () => {
           // height: '100%', // Set the height to 100% of the viewport height
         }}
       >
-        <div className="px-10 pt-12">
+        <div className="px-10 pt-12 flex items-center">
           <input
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full text-center text-2xl py-2"
           />
+          <div className="md:hidden">
+          <span onClick={handleMenu} className="text-white text-3xl font-bold"><FaEllipsisVertical /></span>
+        </div>
         </div>
         <div>
           <div className="flex w-full  items-center justify-center bg-grey-lighter">
@@ -52,14 +58,14 @@ const Home = () => {
             </label>
           </div>
         </div>
-        <div className="flex gap-4 md:gap-8 mt-10 px-2 md:px-5">
+        <div className="flex gap-2 md:gap-8 mt-10 px-2 md:px-5">
           <div className="w-1/2">
             <div className="flex relative">
               <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image1} alt="" />
               <input
                 type="text"
                 placeholder="Add answer 1"
-                className="input input-bordered w-full rounded py-12 text-xl pl-10"
+                className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
             <div className="flex relative mt-4 md:mt-10">
@@ -67,7 +73,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Add answer 3"
-                className="input input-bordered w-full rounded py-12 text-xl pl-10"
+                className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
           </div>
@@ -77,7 +83,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Add answer 2"
-                className="input input-bordered w-full rounded py-12 text-xl pl-10"
+                className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
             <div className="flex relative mt-4 md:mt-10">
@@ -85,7 +91,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Add answer 4"
-                className="input input-bordered w-full rounded py-12 text-xl pl-10"
+                className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
           </div>
@@ -98,7 +104,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Add answer 5"
-                className="input input-bordered w-full rounded py-12 text-xl pl-10"
+                className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
             <div className="w-1/2 flex relative">
@@ -106,12 +112,12 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Add answer 6"
-                className="input input-bordered w-full rounded py-12 text-xl pl-10"
+                className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
           </div>
         }
-        <div onClick={handleAddQuestion} className="cursor-pointer flex items-center justify-center gap-3 bg-[#665052] text-white w-96 mx-auto mt-5 py-3">
+        <div onClick={handleAddQuestion} className="cursor-pointer flex items-center justify-center gap-3 bg-[#665052] text-white   mx-5 md:w-96 md:mx-auto mt-5 py-3">
           <p className="px-2 py-2 rounded-full bg-[#028282] text-white">
             <FaStar />
           </p>

@@ -24,16 +24,19 @@ const btnOption = [
   {
     id: "01",
     name: "+ Add Question",
+    icon: <FaLayerGroup></FaLayerGroup>,
     rout: "",
   },
   {
     id: "02",
     name: "Question bank ",
+    icon: <FaLayerGroup></FaLayerGroup>,
     rout: <QuestionBank />,
   },
   {
     id: "03",
     name: "Question Generator",
+    icon: <FaLayerGroup></FaLayerGroup>,
     rout: <QuestionGenerator />,
   },
 ];
@@ -236,31 +239,24 @@ const AddQuestionButton = () => {
   return (
     <div
   className={`row-span-0 col-span-0 order-1 bg-gray-200 rounded-xl md:row-span-4 md:col-span-2 md:h-[590px] overflow-hidden ${
-    AddButtonHidden ? "hidden" : ""
+    AddButtonHidden ? "" : ""
   }`}
 >
   {/* drawer start */}
-  <div className="drawer lg:drawer-open z-10">
-    <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-    <div className="drawer-content flex flex-col items-center justify-center">
-      {/* Page content here */}
-    </div>
-    <div className="drawer-side w-[600px]">
-      <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-      <div>
-        <div className="flex items-center justify-between mt-3 mx-5 text-lg font-medium w-[600px]">
+  <div className="">
+    <div className="">
+        <div className="flex items-center justify-between mt-3 mx-5 text-lg font-medium w-[300px] md:w-[600px]">
           {btnOption.map((singleBtn) => (
             <div key={singleBtn.id}>
               <button
                 onClick={() => handleModalSubPart(singleBtn)}
                 className="bg-blue-500 px-2 py-1 rounded-lg text-white"
               >
-                {singleBtn?.name}
+               <span>{singleBtn.icon}</span> <span className="hidden md:block">{singleBtn?.name}</span>
               </button>
             </div>
           ))}
         </div>
-      </div>
       {addQuestionModalSubPart ? (
         addQuestionModalSubPart
       ) : (
@@ -337,7 +333,7 @@ const AddQuestionButton = () => {
               </>
             )  }
           </ul>
-          <div className="w-72 mt-10">
+          <div className="hidden md:block w-72 mt-10">
             <div className="">
               <p>{individualImage}</p>
             </div>

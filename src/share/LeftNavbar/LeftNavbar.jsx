@@ -93,7 +93,7 @@ const LeftNavbar = () => {
 
 
   return (
-    <div className="md:mt-5  flex md:flex-wrap items-center justify-between ">
+    <div className="md:mt-5 w-screen  flex md:flex-wrap items-center justify-between ">
       <div className="w-9/12 md:w-full md:max-h-[600px] overflow-x-auto  md:overflow-y-auto px-1 md:overflow-x-hidden">
         <DndProvider backend={HTML5Backend}>
           <div className="flex md:flex-wrap">
@@ -112,7 +112,7 @@ const LeftNavbar = () => {
         </DndProvider>
       </div>
 
-      <div className="w-2/10 md:w-full text-center md:mt-4">
+      <div className="w-2/12 md:w-full text-center md:mt-4">
         <button
           onClick={ handleAddQuestion}
           className="bg-[#1368ce] text-white px-3 py-2 text-lg rounded-lg shadow-xl hover:bg-[#163c6b] font-medium"

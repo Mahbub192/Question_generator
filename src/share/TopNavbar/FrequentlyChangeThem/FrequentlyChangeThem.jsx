@@ -90,9 +90,13 @@ const Sports = [
 ];
 
 const FrequentlyChangeThem = () => {
-    const {setOutLateImage} = useContext(AuthContext)
+    const {setOutLateImage, smallScreen,setSmallScreen,rightNav, setRightNav } = useContext(AuthContext);
+  const handleTheme = ()=>{
+    setRightNav(!rightNav)
+    setSmallScreen(!smallScreen)
+  }
   return (
-    <div className="w-72 px-2 mt-10">
+    <div className="h-[calc(100vh-220px)] w-full px-5 md:w-72 md:px-2 mt-10">
       <div className="collapse collapse-arrow  border-2 mt-2">
         <input type="radio" name="my-accordion-2" />
         <div className="collapse-title text-lg font-medium">
@@ -114,7 +118,7 @@ const FrequentlyChangeThem = () => {
                 onClick={()=>setOutLateImage(singleImage.imageURL)}
               >
                 <img
-                  className="h-20 object-cover"
+                  className="h-20 w-44 object-cover"
                   src={singleImage.imageURL}
                   alt=""
                 />
@@ -138,7 +142,7 @@ const FrequentlyChangeThem = () => {
                 onClick={()=>setOutLateImage(singleImage.imageURL)}
               >
                 <img
-                  className="h-20 object-cover"
+                  className="h-20  w-44 object-cover"
                   src={singleImage.imageURL}
                   alt=""
                 />
@@ -162,7 +166,7 @@ const FrequentlyChangeThem = () => {
                 onClick={()=>setOutLateImage(singleImage.imageURL)}
               >
                 <img
-                  className="h-20 object-cover"
+                  className="h-20 w-44 object-cover"
                   src={singleImage.imageURL}
                   alt=""
                 />
@@ -186,7 +190,7 @@ const FrequentlyChangeThem = () => {
                 onClick={()=>setOutLateImage(singleImage.imageURL)}
               >
                 <img
-                  className="h-20 object-cover"
+                  className="h-20 w-44 object-cover"
                   src={singleImage.imageURL}
                   alt=""
                 />
@@ -197,6 +201,9 @@ const FrequentlyChangeThem = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="md:hidden w-24 ml-auto mt-5">
+        <button onClick={handleTheme} className="rounded-lg shadow-2xl text-lg text-center font-bold px-3 py-2 bg-blue-400 text-white">Cancel</button>
       </div>
     </div>
   );

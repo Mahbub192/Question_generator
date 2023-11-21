@@ -10,12 +10,12 @@ const TopNavbar = () => {
     setSmallScreen(!smallScreen)
   }
   return (
-    <div className="mt-3 flex  items-center justify-between px-2 md:px-5 py-2 shadow-2xl">
+    <div className="mt-3 flex w-screen overflow-hidden  items-center justify-between px-5 md:px-5 py-2 shadow-2xl">
       <div className="flex  md:gap-10">
         <img className="w-10 md:w-20" src={logo} alt="" />
         <div className="flex md:w-96 items-center justify-between border-4 px-3 border-gray-300">
-          <h3 className="md:text-xl font-semibold">Enter Kahoot title...</h3>
-          <h2 className="md:text-xl font-semibold">Setting</h2>
+          <h3 className="text-sm md:text-xl font-semibold">Enter title...</h3>
+          <h2 className="text-sm md:text-xl font-semibold">Setting</h2>
         </div>
       </div>
       <div className="hidden md:block md:flex items-center gap-6">
