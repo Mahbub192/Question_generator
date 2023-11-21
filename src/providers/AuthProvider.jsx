@@ -7,6 +7,7 @@ export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [rightNav, setRightNav] = useState(false);
+  const [smallScreen , setSmallScreen] = useState(false)
   const [copySlide, setCopySlide] = useState();
   const [mainSlide, setMainSlide] = useState(<Home />);
   const [manLayout, setManLayout] = useState();
@@ -57,6 +58,8 @@ const AuthProvider = ({ children }) => {
     addQuestionModalSubPart,
     addSlideButton,
     setAddSlideButton,
+    setSmallScreen,
+    smallScreen
   };
 
   return (

@@ -4,7 +4,11 @@ import { FaFileLines, FaStar, FaThemeisle } from "react-icons/fa6";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const TopNavbar = () => {
-  const { rightNav, setRightNav } = useContext(AuthContext);
+  const { smallScreen,setSmallScreen,rightNav, setRightNav } = useContext(AuthContext);
+  const handleTheme = ()=>{
+    setRightNav(!rightNav)
+    setSmallScreen(!smallScreen)
+  }
   return (
     <div className="mt-3 flex  items-center justify-between px-2 md:px-5 py-2 shadow-2xl">
       <div className="flex  md:gap-10">
@@ -36,7 +40,7 @@ const TopNavbar = () => {
           <h3 className="text-xl  text-[#028282]">Upgrade </h3>
         </div>
         <div
-          onClick={() => setRightNav(!rightNav)}
+          onClick={handleTheme}
           className="flex gap-1 bg-blue-500 px-3 py-1 rounded-lg cursor-pointer"
         >
           <p className="px-2 py-2 rounded-full  text-white">
