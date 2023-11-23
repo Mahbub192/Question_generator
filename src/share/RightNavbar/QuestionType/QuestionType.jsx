@@ -10,6 +10,14 @@ import Home from "../../../pages/Home/Home/Home";
 import TrueOrFalse from "../../../pages/TrueOrFalse/TrueOrFalse";
 import TypeAnswerSlide from "../../../conponent/TypeAnswerSlide/TypeAnswerSlide";
 import PuzzleSlide from "../../../conponent/PuzzleSlide/PuzzleSlide";
+import DropPoint from "../../../pages/DropPoint/DropPoint";
+import DropPointSlide from "../../../pages/DropPoint/DropPointSlide";
+import WordCloud from "../../../pages/WordCloud/WordCloud";
+import WordCloudSlide from "../../../pages/WordCloud/WordCloudSlide";
+import OpenEnded from "../../../pages/OpenEnded/OpenEnded";
+import OpenEndedSlide from "../../../pages/OpenEnded/OpenEndedSlide";
+import Slider from "../../../pages/Slider/Slider";
+import SliderSlide from "../../../pages/Slider/SliderSlide";
 
 const TestKnowledge = [
   {
@@ -39,7 +47,9 @@ const TestKnowledge = [
   {
     id: "04",
     name: "Slide",
-    // route: <Slide />,
+    linkThrow: 'slide',
+    slide: <SliderSlide />,
+    route: <Slider />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
@@ -50,12 +60,12 @@ const TestKnowledge = [
     route: <Puzzle />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
-  {
-    id: "06",
-    name: "Fill in the blanks",
-    // route: <FillInTheBlanks />,
-    icon: <FaLayerGroup></FaLayerGroup>,
-  },
+  // {
+  //   id: "06",
+  //   name: "Fill in the blanks",
+  //   // route: <FillInTheBlanks />,
+  //   icon: <FaLayerGroup></FaLayerGroup>,
+  // },
 ];
 
 const CollectOpinions = [
@@ -70,16 +80,25 @@ const CollectOpinions = [
   {
     id: "02",
     name: "Drop pin",
+    linkThrow: "dropPoint",
+    slide: <DropPointSlide />,
+    route: <DropPoint />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
     id: "03",
     name: "Word cloud",
+    linkThrow: "wordCloud",
+    slide: <WordCloudSlide />,
+    route: <WordCloud />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
   {
     id: "04",
     name: "Open-ended",
+    linkThrow: "openEnded",
+    slide: <OpenEndedSlide />,
+    route: <OpenEnded />,
     icon: <FaLayerGroup></FaLayerGroup>,
   },
 ];
@@ -117,7 +136,7 @@ const QuestionType = () => {
           <div className="grid grid-cols-2 gap-2 ">
             {TestKnowledge.map((category) => (
               <Link to={`/${category.linkThrow}`} key={category.id}>
-                <li onClick={() => handleLinkClick(category)} className="">
+                <li onClick={() => handleLinkClick(category)} className="bg-gray-200">
                   <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
                     <h1 className="text-2xl ">{category.icon}</h1>
                     <h1 className="text-lg text-center w-28">
@@ -134,7 +153,7 @@ const QuestionType = () => {
           <div className="grid grid-cols-2 gap-2 ">
             {CollectOpinions.map((category) => (
                <Link to={`/${category.linkThrow}`} key={category.id}>
-               <li onClick={() => handleLinkClick(category)} className="">
+               <li onClick={() => handleLinkClick(category)} className="bg-gray-200">
                  <div className="flex flex-col hover:border-2 border-blue-500 hover:px-0">
                    <h1 className="text-2xl ">{category?.icon}</h1>
                    <h1 className="text-lg text-center w-28">

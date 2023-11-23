@@ -19,6 +19,12 @@ import BigTitle from "../../pages/BigTitle/BigTitle";
 import Quote from "../../pages/Quote/Quote";
 import QuoteSlide from "../QuoteSlide/QuoteSlide";
 import BigMedia from "../../pages/BigMedia/BigMedia";
+import DropPointSlide from "../../pages/DropPoint/DropPointSlide";
+import DropPoint from "../../pages/DropPoint/DropPoint";
+import WordCloudSlide from "../../pages/WordCloud/WordCloudSlide";
+import WordCloud from "../../pages/WordCloud/WordCloud";
+import OpenEndedSlide from "../../pages/OpenEnded/OpenEndedSlide";
+import OpenEnded from "../../pages/OpenEnded/OpenEnded";
 
 const btnOption = [
   {
@@ -85,13 +91,13 @@ const TestKnowledge = [
     icon: <FaLayerGroup></FaLayerGroup>,
     info: "Ask players to place answers in the correct order.",
   },
-  {
-    id: "06",
-    name: "Fill in the blanks",
-    // route: <FillInTheBlanks />,
-    icon: <FaLayerGroup></FaLayerGroup>,
-    info: "",
-  },
+  // {
+  //   id: "06",
+  //   name: "Fill in the blanks",
+  //   // route: <FillInTheBlanks />,
+  //   icon: <FaLayerGroup></FaLayerGroup>,
+  //   info: "",
+  // },
 ];
 
 const CollectOpinions = [
@@ -106,20 +112,26 @@ const CollectOpinions = [
   {
     id: "02",
     name: "Drop pin",
+    linkThrow: "dropPoint",
+    slide: <DropPointSlide />,
+    route: <DropPoint />,
     icon: <FaLayerGroup></FaLayerGroup>,
-    info: "Ask players to drop pins on an image.",
   },
   {
     id: "03",
     name: "Word cloud",
+    linkThrow: "wordCloud",
+    slide: <WordCloudSlide />,
+    route: <WordCloud />,
     icon: <FaLayerGroup></FaLayerGroup>,
-    info: "Collect short free-form poll responses.",
   },
   {
     id: "04",
     name: "Open-ended",
+    linkThrow: "openEnded",
+    slide: <OpenEndedSlide />,
+    route: <OpenEnded />,
     icon: <FaLayerGroup></FaLayerGroup>,
-    info: "Ask players to type a long free-form response.",
   },
 ];
 
@@ -238,7 +250,7 @@ const AddQuestionButton = () => {
   };
   return (
     <div
-  className={`row-span-0 col-span-0 order-1 bg-gray-200 rounded-xl md:row-span-4 md:col-span-2 md:h-[590px] overflow-hidden ${
+  className={`row-span-0 col-span-0 order-1 bg-gray-200 rounded-xl md:row-span-4 md:col-span-2 md:h-[690px] overflow-hidden ${
     AddButtonHidden ? "" : ""
   }`}
 >

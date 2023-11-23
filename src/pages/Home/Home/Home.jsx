@@ -20,12 +20,12 @@ const Home = () => {
   return (
     <div>
       <div
-        className="bg-gray-100 pb-10 h-[calc(100vh-155px)]"
+        className="bg-gray-100 pb-10 h-screen"
         style={{
           backgroundImage: `url(${OutLatImage})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: "calc(100vh - 170px)",
+          // height: "calc(100vh - 170px)",
           // width: '100%',
           // height: '100%', // Set the height to 100% of the viewport height
         }}

@@ -19,6 +19,12 @@ const TopNavbar = () => {
         </div>
       </div>
       <div className="hidden md:block md:flex items-center gap-6">
+      <div className="hidden md:block md:flex gap-2">
+          <p className="px-2 py-2 rounded-full bg-[#028282] text-white">
+            <FaStar />
+          </p>
+          <h3 className="text-xl  text-[#028282]">Upgrade </h3>
+        </div>
         <div className="flex items-center border-2 px-4 py-2 bg-gray-200 cursor-pointer shadow-lg rounded-md">
           <p className="text-2xl text-blue-500 font-semibold">
             <FaFileLines />
@@ -33,12 +39,12 @@ const TopNavbar = () => {
         </div>
       </div>
       <div className="flex justify-between items-center gap-2 md:gap-6">
-        <div className="hidden md:block md:flex gap-2">
+        {/* <div className="hidden md:block md:flex gap-2">
           <p className="px-2 py-2 rounded-full bg-[#028282] text-white">
             <FaStar />
           </p>
           <h3 className="text-xl  text-[#028282]">Upgrade </h3>
-        </div>
+        </div> */}
         <div
           onClick={handleTheme}
           className="flex gap-1 bg-blue-500 px-3 py-1 rounded-lg cursor-pointer"

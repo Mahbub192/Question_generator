@@ -126,7 +126,7 @@ const LeftNavbar = () => {
           <span className="hidden md:block">Add Question</span> <span className="block md:hidden">+</span>
         </button>
       </div>
-      <div className="hidden md:block text-center mt-5">
+      <div className="hidden md:block w-2/12 md:w-full text-center md:mt-4">
         <button onClick={handelAddSlide} className="bg-gray-300  px-7 py-2 text-lg rounded-lg shadow-2xl  font-medium">
           Add Slide
         </button>
