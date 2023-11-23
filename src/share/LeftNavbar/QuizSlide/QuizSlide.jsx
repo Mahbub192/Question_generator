@@ -9,7 +9,8 @@ const QuizSlide = () => {
            <div className="">
            <div className="hidden md:block w-16 mx-auto mt-1 border-gray-500">
               <input
-              className="w-full "
+              className="w-full border-2"
+              disabled
               />
             </div>
             <div className="block md:hidden">
@@ -34,11 +35,13 @@ const QuizSlide = () => {
                 <div className="">
                   <input
                     className="border-2 w-10 h-5"
+                    disabled
                   />
                 </div>
                 <div className="">
                   <input
                     className="border-2 w-10 h-5"
+                    disabled
                   />
                 </div>
               </div>
@@ -46,11 +49,13 @@ const QuizSlide = () => {
                 <div className="">
                   <input
                     className="border-2 w-10 h-5"
+                    disabled
                   />
                 </div>
                 <div className="">
                   <input
                     className="border-2 w-10 h-5"
+                    disabled
                   />
                 </div>
               </div>

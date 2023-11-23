@@ -12,7 +12,7 @@ const Home = () => {
   const [moreAns, setMoreAns] = useState(false)
   const handleAddQuestion = ()=>{
     setMoreAns(!moreAns)
-    setMoreAnsTex('Remove more answer')
+    setMoreAnsTex(moreAns? "Add more answer" : "Remove more answer")
   }
   const handleMenu =()=>{
     console.log(handleMenu)
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div>
       <div
-        className="bg-gray-100 pb-10 h- "
+        className="bg-gray-100 pb-10 h-[calc(100vh-155px)]"
         style={{
           backgroundImage: `url(${OutLatImage})`,
           backgroundRepeat: "no-repeat",
@@ -98,7 +98,7 @@ const Home = () => {
         </div>
         {
           moreAns &&
-          <div className="flex px-2 gap-4 mt-4">
+          <div className="flex gap-2 md:gap-8 mt-4  px-2 md:px-5">
             <div className="w-1/2 flex relative">
             <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image1} alt="" />
               <input

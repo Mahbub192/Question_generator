@@ -38,23 +38,27 @@ const DraggableItem = ({
       ref={(node) => drag(drop(node))}
       style={{ border: "1px solid #ddd", padding: "10px", marginBottom: "5px" }}
     >
-      <div className="text-sm md:text-lg font-bold text-gray-400">
-        {index + 1} no Slide
+      <div className="text-sm md:text-lg font-bold text-gray-400 flex gap-1 items-center">
+        {index + 1} no <span className="hidden md:block">Slide</span>
       </div>
-      <div className="flex gap-1 ">
-        <div className="hidden md:block md:mt-10 ">
+      <div className="flex gap-1">
+        <div className="md:mt-10 hidden md:block">
+          <div>
           <button
             onClick={() => setCopySlide(<QuizSlide />)}
             className="text-xl p-0 "
           >
             <FaRegCopy />
           </button>
+          </div>
+          <div>
           <button
             onClick={() => handleDeleteSlide(id)}
             className=" md:mt-4 text-xl p-0"
           >
             <AiOutlineDelete />
           </button>
+          </div>
         </div>
         <div  onClick={() => setManLayout(mainContent)}>{text}</div>
       </div>
@@ -93,10 +97,10 @@ const LeftNavbar = () => {
 
 
   return (
-    <div className="md:mt-5 w-screen  flex md:flex-wrap items-center justify-between ">
-      <div className="w-9/12 md:w-full md:max-h-[600px] overflow-x-auto  md:overflow-y-auto px-1 md:overflow-x-hidden">
+    <div className="md:mt-5 w-screen md:w-full  flex md:flex-wrap items-center justify-between ">
+      <div className="w-9/12 md:w-full  md:max-h-[600px] overflow-x-auto  md:overflow-y-auto px-1 md:overflow-x-hidden">
         <DndProvider backend={HTML5Backend}>
-          <div className="flex md:flex-wrap">
+          <div className="flex md:block">
             {items.map((item, index) => (
               <DraggableItem
                 key={item.id}
@@ -111,6 +115,8 @@ const LeftNavbar = () => {
           </div>
         </DndProvider>
       </div>
+
+      
 
       <div className="w-2/12 md:w-full text-center md:mt-4">
         <button
