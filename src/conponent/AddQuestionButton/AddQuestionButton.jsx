@@ -116,6 +116,7 @@ const CollectOpinions = [
     slide: <DropPointSlide />,
     route: <DropPoint />,
     icon: <FaLayerGroup></FaLayerGroup>,
+    info: "Ask players to drop pins on an image.",
   },
   {
     id: "03",
@@ -124,6 +125,7 @@ const CollectOpinions = [
     slide: <WordCloudSlide />,
     route: <WordCloud />,
     icon: <FaLayerGroup></FaLayerGroup>,
+    info: "Collect short free-form poll responses.",
   },
   {
     id: "04",
@@ -132,6 +134,7 @@ const CollectOpinions = [
     slide: <OpenEndedSlide />,
     route: <OpenEnded />,
     icon: <FaLayerGroup></FaLayerGroup>,
+    info: "Ask players to type a long free-form response.",
   },
 ];
 

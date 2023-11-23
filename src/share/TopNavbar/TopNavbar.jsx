@@ -2,6 +2,7 @@ import { useContext } from "react";
 import logo from "../../assets/images/TopNavbar/logo.png";
 import { FaFileLines, FaStar, FaThemeisle } from "react-icons/fa6";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const TopNavbar = () => {
   const { smallScreen,setSmallScreen,rightNav, setRightNav } = useContext(AuthContext);
@@ -54,6 +55,11 @@ const TopNavbar = () => {
           </p>
           <h3 className="hidden md:block text-xl text-white">Themes </h3>
         </div>
+        <Link to={`/preview`} className="hidden md:block">
+          <button className="bg-gray-300 px-5 py-[6px] shadow-2xl font-medium">
+          Preview
+          </button>
+        </Link>  
         <div className="hidden md:block">
           <button className="bg-gray-300 px-5 py-[6px] shadow-2xl font-medium">
             Exit
