@@ -20,7 +20,7 @@ const Preview = () => {
   }, [currentIndex, items]);
 
   return (
-    <div>
+    <div className="bg-blue-400">
       <div className="container mx-auto">
         {/* top */}
         <div className="flex items-center justify-between">
@@ -32,7 +32,7 @@ const Preview = () => {
           </div>
           <div className="flex items-center gap-10">
             <div className="">
-              <h1 className="bg-gray-300 rounded-full shadow-2xl text-center px-8 py-8">
+              <h1 className="bg-gray-300 rounded-full shadow-2xl text-center px-5 py-8">
                 Total <br />
                 Participant
               </h1>

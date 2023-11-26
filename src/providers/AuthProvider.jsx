@@ -7,7 +7,7 @@ export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [rightNav, setRightNav] = useState(false);
-  const [smallScreen , setSmallScreen] = useState(false)
+  const [smallScreen, setSmallScreen] = useState(false);
   const [copySlide, setCopySlide] = useState();
   const [mainSlide, setMainSlide] = useState(<Home />);
   const [manLayout, setManLayout] = useState();
@@ -16,8 +16,19 @@ const AuthProvider = ({ children }) => {
   const [AddButtonHidden, setAddButtonHidden] = useState(true);
   const [addQuestionModalSubPart, setAddQuestionModalSubPart] = useState();
   const [addSlideButton, setAddSlideButton] = useState();
+  const [formData, setFormData] = useState({
+    question: "",
+    image: "",
+    answer1: "",
+    answer2: "",
+    answer3: "",
+    answer4: "",
+    answer5: "",
+    answer6: "",
+  });
+
   const [items, setItems] = useState([
-    { id: number, text: <QuizSlide />, mainContent: <Home /> },
+    { id: number, text: <QuizSlide />, mainContent: <Home />, data: formData },
   ]);
   const [OutLatImage, setOutLateImage] = useState(
     "https://media.istockphoto.com/id/1158735721/vector/arrows-up-with-speed-line-on-blue-background.jpg?s=612x612&w=0&k=20&c=pqNZeeTSr2NFp4YNtrgCZyt_f4kp0wmbMwrCXNIo39Y="
@@ -32,6 +43,15 @@ const AuthProvider = ({ children }) => {
       ]);
     }
   }, [copySlide]);
+
+  // useEffect(() => {
+  //   setItems({
+  //     id: number,
+  //     text: <QuizSlide />,
+  //     mainContent: <Home />,
+  //     data: formData,
+  //   });
+  // }, [formData]);
 
   console.log(items);
 
@@ -59,7 +79,9 @@ const AuthProvider = ({ children }) => {
     addSlideButton,
     setAddSlideButton,
     setSmallScreen,
-    smallScreen
+    smallScreen,
+    formData,
+    setFormData,
   };
 
   return (

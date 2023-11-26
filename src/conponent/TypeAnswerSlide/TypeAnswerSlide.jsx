@@ -28,12 +28,13 @@ const TypeAnswerSlide = () => {
                 </label>
               </div>
             </div>
-              <div className="w-10 mx-auto hidden md:block">
+              <div className="w-10  mx-auto hidden md:block">
                 <input className="border-2 w-10 h-5 " disabled />
               </div>
-              <div className="flex pl-1 gap-3 mt-2 hidden md:block"> 
+              <div className="hidden md:block">
+              <div className=" flex pl-1 gap-3 mt-2   "> 
                 <div className="">
-                  <input className="border-2 w-5 h-5" disabled />
+                  <input className="border-2 w-5 h-5 " disabled />
                 </div>
                 <div className="">
                   <input className="border-2 w-5 h-5" disabled />
@@ -41,6 +42,7 @@ const TypeAnswerSlide = () => {
                 <div className="">
                   <input className="border-2 w-5 h-5"  disabled/>
                 </div>
+              </div>
               </div>
             </div>
           </div>

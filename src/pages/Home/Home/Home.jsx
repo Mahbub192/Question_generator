@@ -7,16 +7,47 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Home = () => {
-  const { OutLatImage } = useContext(AuthContext);
-  const [moreAnsText, setMoreAnsTex] = useState('Add more answer')
-  const [moreAns, setMoreAns] = useState(false)
-  const handleAddQuestion = ()=>{
-    setMoreAns(!moreAns)
-    setMoreAnsTex(moreAns? "Add more answer" : "Remove more answer")
-  }
-  const handleMenu =()=>{
-    console.log(handleMenu)
-  }
+  const { OutLatImage,formData, setFormData } = useContext(AuthContext);
+  const [moreAnsText, setMoreAnsTex] = useState("Add more answer");
+  const [moreAns, setMoreAns] = useState(false);
+  const handleAddQuestion = () => {
+    setMoreAns(!moreAns);
+    setMoreAnsTex(moreAns ? "Add more answer" : "Remove more answer");
+  };
+  const handleMenu = () => {
+    console.log(handleMenu);
+  };
+
+
+  console.log(32, formData);
+
+  const handleQuestion = (event) => {
+    setFormData({ ...formData, question: event.target.value });
+  };
+
+  // const handleImage = (event) => {
+  //   setFormData({ ...formData, image: event.target.value });
+  // };
+  const handleAnswer1 = (event) => {
+    setFormData({ ...formData, answer1: event.target.value });
+  };
+
+  const handleAnswer2 = (event) => {
+    setFormData({ ...formData, answer2: event.target.value });
+  };
+  const handleAnswer3 = (event) => {
+    setFormData({ ...formData, answer3: event.target.value });
+  };
+  const handleAnswer4 = (event) => {
+    setFormData({ ...formData, answer4: event.target.value });
+  };
+  const handleAnswer5 = (event) => {
+    setFormData({ ...formData, answer5: event.target.value });
+  };
+  const handleAnswer6 = (event) => {
+    setFormData({ ...formData, answer6: event.target.value });
+  };
+
   return (
     <div>
       <div
@@ -32,13 +63,20 @@ const Home = () => {
       >
         <div className="px-10 pt-12 flex items-center">
           <input
+            value={formData.question}
+            onChange={handleQuestion}
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full text-center text-2xl py-2"
           />
           <div className="md:hidden">
-          <span onClick={handleMenu} className="text-white text-3xl font-bold"><FaEllipsisVertical /></span>
-        </div>
+            <span
+              onClick={handleMenu}
+              className="text-white text-3xl font-bold"
+            >
+              <FaEllipsisVertical />
+            </span>
+          </div>
         </div>
         <div>
           <div className="flex w-full  items-center justify-center bg-grey-lighter">
@@ -58,19 +96,32 @@ const Home = () => {
             </label>
           </div>
         </div>
+
         <div className="flex gap-2 md:gap-8 mt-10 px-2 md:px-5">
           <div className="w-1/2">
             <div className="flex relative">
-              <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image1} alt="" />
+              <img
+                className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded"
+                src={image1}
+                alt=""
+              />
               <input
+                value={formData.answer1}
+                onChange={handleAnswer1}
                 type="text"
                 placeholder="Add answer 1"
                 className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
             <div className="flex relative mt-4 md:mt-10">
-            <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image2} alt="" />
+              <img
+                className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded"
+                src={image2}
+                alt=""
+              />
               <input
+                value={formData.answer2}
+                onChange={handleAnswer2}
                 type="text"
                 placeholder="Add answer 3"
                 className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
@@ -79,16 +130,28 @@ const Home = () => {
           </div>
           <div className="w-1/2">
             <div className="flex relative">
-            <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image3} alt="" />
+              <img
+                className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded"
+                src={image3}
+                alt=""
+              />
               <input
+                value={formData.answer3}
+                onChange={handleAnswer3}
                 type="text"
                 placeholder="Add answer 2"
                 className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
             <div className="flex relative mt-4 md:mt-10">
-            <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image4} alt="" />
+              <img
+                className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded"
+                src={image4}
+                alt=""
+              />
               <input
+                value={formData.answer4}
+                onChange={handleAnswer4}
                 type="text"
                 placeholder="Add answer 4"
                 className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
@@ -96,28 +159,42 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {
-          moreAns &&
+        {moreAns && (
           <div className="flex gap-2 md:gap-8 mt-4  px-2 md:px-5">
             <div className="w-1/2 flex relative">
-            <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image1} alt="" />
+              <img
+                className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded"
+                src={image1}
+                alt=""
+              />
               <input
+                value={formData.answer5}
+                onChange={handleAnswer5}
                 type="text"
                 placeholder="Add answer 5"
                 className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
             <div className="w-1/2 flex relative">
-            <img className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded" src={image1} alt="" />
+              <img
+                className="absolute h-10 w-5 md:h-24 md:w-10 md:static rounded"
+                src={image1}
+                alt=""
+              />
               <input
+                value={formData.answer6}
+                onChange={handleAnswer6}
                 type="text"
                 placeholder="Add answer 6"
                 className="input input-bordered w-full rounded py-9 md:py-12 text-xl pl-10"
               />
             </div>
           </div>
-        }
-        <div onClick={handleAddQuestion} className="cursor-pointer flex items-center justify-center gap-3 bg-[#665052] text-white   mx-5 md:w-96 md:mx-auto mt-5 py-3">
+        )}
+        <div
+          onClick={handleAddQuestion}
+          className="cursor-pointer flex items-center justify-center gap-3 bg-[#665052] text-white   mx-5 md:w-96 md:mx-auto mt-5 py-3"
+        >
           <p className="px-2 py-2 rounded-full bg-[#028282] text-white">
             <FaStar />
           </p>

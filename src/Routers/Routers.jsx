@@ -10,6 +10,7 @@ import TrueOrFalse from "../pages/TrueOrFalse/TrueOrFalse";
 import TypeAnswer from "../pages/TypeAnswer/TypeAnswer";
 import WordCloud from "../pages/WordCloud/WordCloud";
 import Preview from "../pages/Preview/Preview";
+import CreateGroupPage from "../pages/CreateGroupSection/CreateGroupPage/CreateGroupPage";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
   {
     path: "/group",
     element: <GroupLayout />,
+    children:[
+      {
+        path: '/group',
+        element:<CreateGroupPage/>
+      }
+    ]
   },
   {
     path:"preview",
