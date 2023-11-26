@@ -7,6 +7,8 @@ export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [rightNav, setRightNav] = useState(false);
+  // const [groupNameSet, setGroupNameSet] = useState([])
+  const groupNameSet = []
   const [smallScreen, setSmallScreen] = useState(false);
   const [copySlide, setCopySlide] = useState();
   const [mainSlide, setMainSlide] = useState(<Home />);
@@ -82,6 +84,7 @@ const AuthProvider = ({ children }) => {
     smallScreen,
     formData,
     setFormData,
+    groupNameSet, 
   };
 
   return (
