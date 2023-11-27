@@ -11,6 +11,7 @@ import TypeAnswer from "../pages/TypeAnswer/TypeAnswer";
 import WordCloud from "../pages/WordCloud/WordCloud";
 import Preview from "../pages/Preview/Preview";
 import CreateGroupPage from "../pages/CreateGroupSection/CreateGroupPage/CreateGroupPage";
+import SingleGroupDesign from "../pages/CreateGroupSection/SingleGroupDesign/SingleGroupDesign";
 
 const router = createBrowserRouter([
   {
@@ -60,19 +61,23 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/group",
+    path: "/",
     element: <GroupLayout />,
-    children:[
+    children: [
       {
-        path: '/group',
-        element:<CreateGroupPage/>
-      }
-    ]
+        path: "group",
+        element: <CreateGroupPage />,
+      },
+      {
+        path: "singleGroupDesign",
+        element: <SingleGroupDesign />,
+      },
+    ],
   },
   {
-    path:"preview",
-    element:<Preview />
-  }
+    path: "preview",
+    element: <Preview />,
+  },
 ]);
 
 export default router;

@@ -3,7 +3,7 @@ import LeftSide from "../../pages/CreateGroupSection/LeftSide/LeftSide";
 
 const GroupLayout = () => {
   return (
-    <div className="flex container mx-auto gap-5">
+    <div className="flex container mx-auto gap-5 ">
       <div className="w-2/12 hidden md:block">
         <LeftSide />
       </div>
